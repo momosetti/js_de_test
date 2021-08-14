@@ -44,8 +44,8 @@ const renderGraph = (elementID, graphType, graphLabels, graphDatasets) => {
  * @param {array} dataArr provide a data array
  * @returns dataArr with new total element
  */
-const getDataWithTotal = (dataArr) => {
-  return dataArr.map((singleData) => {
+const getDataWithTotal = (dataArr) =>
+  dataArr.map((singleData) => {
     let total = 0;
     for (let key in singleData) {
       if (key !== "period") {
@@ -57,7 +57,6 @@ const getDataWithTotal = (dataArr) => {
     // (which is referenced to data array) with the help of shallow copy
     return Object.assign({ ...singleData }, { total: total / 3 });
   });
-};
 
 /**
  * Create a datasets from an array of data.
