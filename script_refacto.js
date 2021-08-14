@@ -69,27 +69,23 @@ const createDatasetFromData = (dataArr) => {
 
   return dataKeys
     .filter((item) => item !== "period") // exclude the Period key from dataKeys array
-    .map((key) => {
-      return {
-        label: key,
-        // skip the first callbackFn paramter using undefined
-        data: dataArr.map((undefined, index) => {
-          return dataArr[index][key];
-        }),
-        backgroundColor: [
-          "rgba(255, 99, 132, 0.2)",
-          "rgba(54, 162, 235, 0.2)",
-          "rgba(255, 206, 86, 0.2)",
-          "rgba(75, 192, 192, 0.2)",
-        ],
-        borderColor: [
-          "rgba(255, 99, 132, 1)",
-          "rgba(54, 162, 235, 1)",
-          "rgba(255, 206, 86, 1)",
-          "rgba(75, 192, 192, 1)",
-        ],
-      };
-    });
+    .map((key) => ({
+      label: key,
+      // skip the first callbackFn paramter using undefined
+      data: dataArr.map((undefined, index) => dataArr[index][key]),
+      backgroundColor: [
+        "rgba(255, 99, 132, 0.2)",
+        "rgba(54, 162, 235, 0.2)",
+        "rgba(255, 206, 86, 0.2)",
+        "rgba(75, 192, 192, 0.2)",
+      ],
+      borderColor: [
+        "rgba(255, 99, 132, 1)",
+        "rgba(54, 162, 235, 1)",
+        "rgba(255, 206, 86, 1)",
+        "rgba(75, 192, 192, 1)",
+      ],
+    }));
 };
 
 const labels = data.map((d) => d["period"]);
