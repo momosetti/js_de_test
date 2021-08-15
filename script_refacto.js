@@ -52,8 +52,12 @@ const getDataWithTotal = (dataArr) =>
     }
 
     // use immutable data structure to modify singleData object
-    // (which is referenced to data array) with the help of shallow copy
-    return Object.assign({ ...singleData }, { total: total / 3 });
+    // (which is referenced to data array) with the help of deep copy
+    // in purpose of avoid affecting the original data structure (data array items)
+    const singleDataCopy = JSON.parse(JSON.stringify(singleData));
+    return Object.assign(singleDataCopy, {
+      total: total / 3,
+    });
   });
 
 /**
