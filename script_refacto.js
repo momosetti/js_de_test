@@ -48,9 +48,7 @@ const getDataWithTotal = (dataArr) =>
   dataArr.map((singleData) => {
     let total = 0;
     for (let key in singleData) {
-      if (key !== "period") {
-        total += singleData[key];
-      }
+      if (key !== "period") total += singleData[key];
     }
 
     // use immutable data structure to modify singleData object
