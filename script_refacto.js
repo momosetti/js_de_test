@@ -68,7 +68,7 @@ const createDatasetFromData = (dataArr) => {
   const dataKeys = Object.keys(dataArr[0]);
 
   return dataKeys
-    .filter((item) => item !== "period") // exclude the Period key from dataKeys array
+    .filter((key) => key !== "period") // exclude the Period key from dataKeys array
     .map((key) => ({
       label: key,
       // skip the first callbackFn paramter using undefined
